@@ -1,6 +1,6 @@
 
 public class NovaKlasa {
 	private int a;
-	private double c;
+	private double xxxc;
 	private int b;
 }
