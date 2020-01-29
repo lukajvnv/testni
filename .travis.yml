@@ -26,13 +26,6 @@ after_success:
   - docker push $DOCKER_USERNAME/simple_flask_app:latest
   - export SSHPASS=$DEPLOY_PASS
 
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: chmod 600 deploy_key && sshpass -e ssh -o StrictHostKeyChecking=no -i ./deploy_key
-    $HOST@$HOST_IP './deploy.sh'
-  on:
-    branch: master
 env:
   global:
   - secure: oG9smHjJed07gDRv+PJOzPDbs5a+LVdAl+z/kCLtbkiz3I4hhhkHl2M4Lj1PhgxzryJVZEB2H6/I8G3dHhFsGDyipcIJWitl7UBU7P4cMw+VuGLaWtS7T2LGbUO8GOebiyNXFWpWQfQJAeioaRUrioBaAsoJaJMKRf1bxht3t1xIBb8B2JhQP4TSdWAk2TEd3Ejp76bba8+ekABiByw42h91Ub6fzxHA2bgsFqbCtTXRPfZTLd9suSrakOyw5ajWAIcV7ypU6LdmVN6Cw0cXfWU7eFdB5woSp1A66RJD3XSSIRTTBkx6yH0ac9RvhWFT86HcLUgw79CxaqyE176JR9jpRw0PA2AYLl2C69OSfI+uC3IctufoxCuQ/7rFHAgof3F2mHDiS7gRF3fvPL4iPYIP2x0cDkH5QQgmfhDZXXfrcrr5MOF0C7YvfQoSMN3Ar2srvbQ+ir/Yb2p1w96Z0motUV4XIYynrB9LCjIa/eiFjfaHDQFM8mx7S7jK+WapwoRZhMp9Nb7HSewBE/V7JYKPsG+YSvA0CdB93pajKm0txZyYcESq3sDkFg3GxOScplrNW05tvWZese1BTb1XOYAqBrFRjuhdQ2GiBGNRbWiKWRnOIh4uc+iVPtwhO/GPEm7tiRKuwvYfsZBDzjyYIL9BfGM7j61AYEaiWiuWXaM=
